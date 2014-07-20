@@ -1,3 +1,4 @@
+import scala.annotation.tailrec
 import scala.collection.mutable
 import scala.collection.mutable.Stack
 
@@ -21,7 +22,8 @@ class Clifford {
     m.push(b / a)
   }
 
-  def engine(x: Stack[Int], y: Stack[Int]): Int = {
+  @tailrec
+  private final def engine(x: Stack[Int], y: Stack[Int]): Int = {
 
     if (x.isEmpty && y.length == 1) y.pop()
     else {
